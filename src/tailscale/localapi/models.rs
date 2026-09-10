@@ -72,10 +72,4 @@ impl Prefs {
     pub async fn get_current() -> Result<Self, String> {
         crate::tailscale::localapi::endpoints::get_prefs().await
     }
-
-    /// Update prefs via the Tailscale LocalAPI /localapi/v0/set endpoint.
-    /// This is the correct endpoint for runtime preference changes.
-    pub async fn update(prefs: Self) -> Result<(), String> {
-        crate::tailscale::localapi::endpoints::set_prefs(&prefs).await
-    }
 }

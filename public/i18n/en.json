@@ -119,6 +119,6 @@
   "exitNode.noExitNode": "None (disabled)",
   "toast.exitNode.updated": "Exit node settings updated",
   "toast.exitNode.updateFail": "Failed to update exit node settings: {error}",
-  "api.error.tailscale_prefs_failed": "Failed to read Tailscale preferences.",
-  "api.error.tailscale_prefs_update_failed": "Failed to update Tailscale preferences."
+  "api.error.tailscale_prefs_failed": "Failed to read Tailscale state: {detail}",
+  "api.error.tailscale_prefs_update_failed": "Failed to update Tailscale settings: {detail}"
 }

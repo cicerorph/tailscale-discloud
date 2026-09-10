@@ -119,6 +119,6 @@
   "exitNode.noExitNode": "なし（無効）",
   "toast.exitNode.updated": "Exit Node設定を更新しました",
   "toast.exitNode.updateFail": "Exit Node設定の更新に失敗しました: {error}",
-  "api.error.tailscale_prefs_failed": "Tailscale設定の読み取りに失敗しました。",
-  "api.error.tailscale_prefs_update_failed": "Tailscale設定の更新に失敗しました。"
+  "api.error.tailscale_prefs_failed": "Tailscale設定の読み取りに失敗しました: {detail}",
+  "api.error.tailscale_prefs_update_failed": "Tailscale設定の更新に失敗しました: {detail}"
 }

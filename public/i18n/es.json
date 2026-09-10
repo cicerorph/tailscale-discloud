@@ -120,6 +120,6 @@
   "exitNode.noExitNode": "Ninguno (desactivado)",
   "toast.exitNode.updated": "Configuración de exit node actualizada",
   "toast.exitNode.updateFail": "Error al actualizar configuración de exit node: {error}",
-  "api.error.tailscale_prefs_failed": "Error al leer preferencias de Tailscale.",
-  "api.error.tailscale_prefs_update_failed": "Error al actualizar preferencias de Tailscale."
+  "api.error.tailscale_prefs_failed": "Error al leer el estado de Tailscale: {detail}",
+  "api.error.tailscale_prefs_update_failed": "Error al actualizar la configuración de Tailscale: {detail}"
 }
