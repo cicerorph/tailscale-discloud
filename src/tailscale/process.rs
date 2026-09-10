@@ -94,10 +94,16 @@ pub async fn init_tailscale_flow() -> Result<tokio::process::Child, String> {
         .filter(|s| !s.is_empty());
     let need_login = auth_key.is_none();
 
+    let advertise_exit_node = std::env::var("TAILSCALE_ADVERTISE_EXIT_NODE")
+        .unwrap_or_else(|_| "false".to_string())
+        .to_lowercase()
+        == "true";
+
     prefs.hostname = Some(hostname);
     prefs.route_all = Some(true);
     prefs.corp_dns = Some(true);
     prefs.want_running = Some(true);
+    prefs.advertise_exit_node = Some(advertise_exit_node);
 
     let opts = Options {
         frontend_log_id: None,

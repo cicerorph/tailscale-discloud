@@ -104,5 +104,21 @@
   "update.modal.current": "Current Version",
   "update.modal.latest": "Latest Version",
   "update.modal.repo": "GitHub Repository",
-  "update.modal.release": "View Release"
+  "update.modal.release": "View Release",
+  "exitNode.title": "Exit Node",
+  "exitNode.advertise": "Advertise as Exit Node",
+  "exitNode.advertise.desc": "Allow other devices on your tailnet to route their internet traffic through this node.",
+  "exitNode.use": "Use Exit Node",
+  "exitNode.use.desc": "Route this node's internet traffic through another exit node.",
+  "exitNode.use.placeholder": "Exit node IP or hostname (leave empty to disable)",
+  "exitNode.allowLan": "Allow LAN Access",
+  "exitNode.allowLan.desc": "Allow access to local network devices when using an exit node.",
+  "exitNode.status.advertised": "This node is advertised as an exit node",
+  "exitNode.status.using": "Using exit node: {node}",
+  "exitNode.status.disabled": "Exit node is disabled",
+  "exitNode.noExitNode": "None (disabled)",
+  "toast.exitNode.updated": "Exit node settings updated",
+  "toast.exitNode.updateFail": "Failed to update exit node settings: {error}",
+  "api.error.tailscale_prefs_failed": "Failed to read Tailscale preferences.",
+  "api.error.tailscale_prefs_update_failed": "Failed to update Tailscale preferences."
 }

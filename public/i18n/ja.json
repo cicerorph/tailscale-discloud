@@ -104,5 +104,21 @@
   "update.modal.current": "現在のバージョン",
   "update.modal.latest": "最新のバージョン",
   "update.modal.repo": "GitHubリポジトリ",
-  "update.modal.release": "リリースを表示"
+  "update.modal.release": "リリースを表示",
+  "exitNode.title": "Exit Node",
+  "exitNode.advertise": "Exit Nodeとして通知",
+  "exitNode.advertise.desc": "テールネット上の他のデバイスがこのノード経由でインターネットトラフィックをルーティングできるようにします。",
+  "exitNode.use": "Exit Nodeを使用",
+  "exitNode.use.desc": "このノードのインターネットトラフィックを別のExit Node経由でルーティングします。",
+  "exitNode.use.placeholder": "Exit NodeのIPまたはホスト名（無効にする場合は空欄）",
+  "exitNode.allowLan": "LANアクセスを許可",
+  "exitNode.allowLan.desc": "Exit Node使用時にローカルネットワークデバイスへのアクセスを許可します。",
+  "exitNode.status.advertised": "このノードはExit Nodeとして通知されています",
+  "exitNode.status.using": "Exit Node使用中: {node}",
+  "exitNode.status.disabled": "Exit Nodeは無効です",
+  "exitNode.noExitNode": "なし（無効）",
+  "toast.exitNode.updated": "Exit Node設定を更新しました",
+  "toast.exitNode.updateFail": "Exit Node設定の更新に失敗しました: {error}",
+  "api.error.tailscale_prefs_failed": "Tailscale設定の読み取りに失敗しました。",
+  "api.error.tailscale_prefs_update_failed": "Tailscale設定の更新に失敗しました。"
 }

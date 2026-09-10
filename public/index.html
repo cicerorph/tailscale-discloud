@@ -472,6 +472,72 @@
                     </div>
                 </section>
 
+                <!-- ═══ Exit Node Settings ═══ -->
+                <section class="card section">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                            <span data-i18n="exitNode.title">Exit Node</span>
+                        </h2>
+                        <span class="exit-node-status-badge" id="exit-node-status-badge"></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="exit-node-grid">
+                            <!-- Advertise as Exit Node -->
+                            <div class="exit-node-option">
+                                <div class="exit-node-option-info">
+                                    <label class="toggle-label">
+                                        <span class="exit-node-option-title" data-i18n="exitNode.advertise">Advertise as Exit Node</span>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="exit-node-advertise" />
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </label>
+                                    <p class="exit-node-option-desc" data-i18n="exitNode.advertise.desc">Allow other devices on your tailnet to route their internet traffic through this node.</p>
+                                </div>
+                            </div>
+
+                            <!-- Use Exit Node -->
+                            <div class="exit-node-option">
+                                <div class="exit-node-option-info">
+                                    <span class="exit-node-option-title" data-i18n="exitNode.use">Use Exit Node</span>
+                                    <p class="exit-node-option-desc" data-i18n="exitNode.use.desc">Route this node's internet traffic through another exit node.</p>
+                                </div>
+                                <div class="exit-node-use-input">
+                                    <input class="form-input" type="text" id="exit-node-ip" data-i18n-placeholder="exitNode.use.placeholder" placeholder="Exit node IP or hostname (leave empty to disable)" />
+                                </div>
+                            </div>
+
+                            <!-- Allow LAN Access -->
+                            <div class="exit-node-option">
+                                <div class="exit-node-option-info">
+                                    <label class="toggle-label">
+                                        <span class="exit-node-option-title" data-i18n="exitNode.allowLan">Allow LAN Access</span>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="exit-node-allow-lan" />
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </label>
+                                    <p class="exit-node-option-desc" data-i18n="exitNode.allowLan.desc">Allow access to local network devices when using an exit node.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions" style="margin-top: var(--space-lg);">
+                            <button type="button" class="btn btn-primary" id="exit-node-save-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span data-i18n="form.btn.update">Save Changes</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- ═══ Tunnels List Card ═══ -->
                 <section class="card section">
                     <div class="card-header">

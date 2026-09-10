@@ -55,6 +55,31 @@ pub struct Prefs {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub want_running: Option<bool>,
 
+    // Exit node fields (Tailscale uses camelCase JSON keys for these)
+    #[serde(default, skip_serializing_if = "Option::is_none", rename = "advertiseExitNode")]
+    pub advertise_exit_node: Option<bool>,
+    #[serde(default, skip_serializing_if = "Option::is_none", rename = "exitNodeAllowLANAccess")]
+    pub exit_node_allow_lan_access: Option<bool>,
+    #[serde(default, skip_serializing_if = "Option::is_none", rename = "exitNode")]
+    pub exit_node: Option<String>,
+
     #[serde(flatten)]
     pub extra: std::collections::HashMap<String, serde_json::Value>,
+}
+
+impl Prefs {
+    /// Read current prefs from the Tailscale LocalAPI.
+    pub async fn get_current() -> Result<Self, String> {
+        crate::tailscale::localapi::endpoints::get_prefs().await
+    }
+
+    /// Update prefs via the Tailscale LocalAPI /localapi/v0/start endpoint.
+    pub async fn update(prefs: Self) -> Result<(), String> {
+        let opts = crate::tailscale::localapi::models::Options {
+            frontend_log_id: None,
+            update_prefs: Some(prefs),
+            auth_key: None,
+        };
+        crate::tailscale::localapi::endpoints::start(opts).await
+    }
 }

@@ -1,4 +1,5 @@
 mod config;
+mod exit_node;
 mod test;
 mod tunnels;
 
@@ -20,6 +21,10 @@ pub fn router(state: SharedState) -> Router {
         .route(
             "/api/tunnels/{id}",
             put(tunnels::update_tunnel).delete(tunnels::delete_tunnel),
+        )
+        .route(
+            "/api/exit-node",
+            get(exit_node::get_exit_node_status).put(exit_node::update_exit_node),
         )
         .route("/api/test", post(test::test_endpoint))
         .with_state(state)

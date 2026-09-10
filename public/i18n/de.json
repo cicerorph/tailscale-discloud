@@ -105,5 +105,21 @@
   "update.modal.current": "Aktuelle Version",
   "update.modal.latest": "Neueste Version",
   "update.modal.repo": "GitHub-Repository",
-  "update.modal.release": "Release anzeigen"
+  "update.modal.release": "Release anzeigen",
+  "exitNode.title": "Exit Node",
+  "exitNode.advertise": "Als Exit Node annoncieren",
+  "exitNode.advertise.desc": "Anderen Geräten in Ihrem Tailnet erlauben, ihren Internetverkehr über diesen Knoten zu routen.",
+  "exitNode.use": "Exit Node verwenden",
+  "exitNode.use.desc": "Den Internetverkehr dieses Knotens über einen anderen Exit Node routen.",
+  "exitNode.use.placeholder": "IP oder Hostname des Exit Node (leer lassen zum Deaktivieren)",
+  "exitNode.allowLan": "LAN-Zugriff erlauben",
+  "exitNode.allowLan.desc": "Zugriff auf lokale Netzwerkgeräte erlauben, wenn ein Exit Node verwendet wird.",
+  "exitNode.status.advertised": "Dieser Knoten wird als Exit Node annonciert",
+  "exitNode.status.using": "Exit Node aktiv: {node}",
+  "exitNode.status.disabled": "Exit Node ist deaktiviert",
+  "exitNode.noExitNode": "Keiner (deaktiviert)",
+  "toast.exitNode.updated": "Exit-Node-Einstellungen aktualisiert",
+  "toast.exitNode.updateFail": "Exit-Node-Einstellungen konnten nicht aktualisiert werden: {error}",
+  "api.error.tailscale_prefs_failed": "Tailscale-Einstellungen konnten nicht gelesen werden.",
+  "api.error.tailscale_prefs_update_failed": "Tailscale-Einstellungen konnten nicht aktualisiert werden."
 }

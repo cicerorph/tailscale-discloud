@@ -2279,3 +2279,73 @@ body {
     align-items: center;
     gap: var(--space-sm);
 }
+
+/* ---------- Exit Node Settings ---------- */
+
+.exit-node-status-badge {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+}
+
+.exit-node-status-badge.badge-advertised {
+    background: var(--color-success-bg);
+    color: var(--color-success-text);
+    border: 1px solid var(--color-success-border);
+}
+
+.exit-node-status-badge.badge-using {
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border: 1px solid var(--color-info-border);
+}
+
+.exit-node-status-badge.badge-disabled {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+}
+
+.exit-node-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.exit-node-option {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.exit-node-option-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.exit-node-option-title {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: var(--text-sm);
+}
+
+.exit-node-option-desc {
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    margin: 0;
+}
+
+.exit-node-use-input {
+    margin-top: var(--space-xs);
+}
+
+.exit-node-use-input .form-input {
+    width: 100%;
+}

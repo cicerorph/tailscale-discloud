@@ -15,6 +15,13 @@ let tailscaleIpv6 = "";
 let selectedConnectionDisplay = "magicdns";
 const NODE_DISPLAY_STORAGE_KEY = "nodeDisplay";
 
+// Exit node state
+let exitNodeSettings = {
+  advertise_exit_node: false,
+  exit_node_allow_lan_access: false,
+  exit_node: "",
+};
+
 // ─── DOM Cache ───────────────────────────────────────────────────────────
 const $ = (id) => document.getElementById(id);
 
@@ -115,6 +122,13 @@ const dom = {
   updateLatestVal: $("update-latest-val"),
   updateBtnRepo: $("update-btn-repo"),
   updateBtnRelease: $("update-btn-release"),
+
+  // Exit node
+  exitNodeAdvertise: $("exit-node-advertise"),
+  exitNodeIp: $("exit-node-ip"),
+  exitNodeAllowLan: $("exit-node-allow-lan"),
+  exitNodeSaveBtn: $("exit-node-save-btn"),
+  exitNodeStatusBadge: $("exit-node-status-badge"),
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -129,7 +143,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   bindNodeInfoEvents();
   bindConnectionEvents();
   bindUpdateEvents();
+  bindExitNodeEvents();
   loadConfig();
+  loadExitNodeStatus();
 
   loadSuggestions();
   loadTunnels();
@@ -1072,6 +1088,87 @@ function bindUpdateEvents() {
         closeOverlay(dom.updateOverlay);
       }
     });
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Exit Node
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function loadExitNodeStatus() {
+  try {
+    const status = await api("/exit-node");
+    if (status) {
+      exitNodeSettings = status;
+      renderExitNodeUI();
+    }
+  } catch (err) {
+    console.warn("[exit-node] Could not load exit node status:", err);
+  }
+}
+
+function renderExitNodeUI() {
+  if (dom.exitNodeAdvertise) {
+    dom.exitNodeAdvertise.checked = exitNodeSettings.advertise_exit_node;
+  }
+  if (dom.exitNodeIp) {
+    dom.exitNodeIp.value = exitNodeSettings.exit_node || "";
+  }
+  if (dom.exitNodeAllowLan) {
+    dom.exitNodeAllowLan.checked = exitNodeSettings.exit_node_allow_lan_access;
+  }
+  updateExitNodeStatusBadge();
+}
+
+function updateExitNodeStatusBadge() {
+  if (!dom.exitNodeStatusBadge) return;
+  const badge = dom.exitNodeStatusBadge;
+
+  if (exitNodeSettings.advertise_exit_node) {
+    badge.textContent = t("exitNode.status.advertised");
+    badge.className = "exit-node-status-badge badge-advertised";
+  } else if (exitNodeSettings.exit_node) {
+    badge.textContent = t("exitNode.status.using", { node: exitNodeSettings.exit_node });
+    badge.className = "exit-node-status-badge badge-using";
+  } else {
+    badge.textContent = t("exitNode.status.disabled");
+    badge.className = "exit-node-status-badge badge-disabled";
+  }
+}
+
+function bindExitNodeEvents() {
+  if (dom.exitNodeSaveBtn) {
+    dom.exitNodeSaveBtn.addEventListener("click", saveExitNodeSettings);
+  }
+}
+
+async function saveExitNodeSettings() {
+  const btn = dom.exitNodeSaveBtn;
+  btn.disabled = true;
+  const spinner = document.createElement("div");
+  spinner.className = "spinner spinner-sm";
+  btn.prepend(spinner);
+
+  const data = {
+    advertise_exit_node: dom.exitNodeAdvertise ? dom.exitNodeAdvertise.checked : false,
+    exit_node_allow_lan_access: dom.exitNodeAllowLan ? dom.exitNodeAllowLan.checked : false,
+    exit_node: dom.exitNodeIp ? dom.exitNodeIp.value.trim() : "",
+  };
+
+  try {
+    const result = await api("/exit-node", {
+      method: "PUT",
+      body: JSON.stringify(data),
+    });
+
+    exitNodeSettings = result;
+    renderExitNodeUI();
+    toast(t("toast.exitNode.updated"), "success");
+  } catch (err) {
+    toast(t("toast.exitNode.updateFail", { error: err.message }), "error");
+  } finally {
+    spinner.remove();
+    btn.disabled = false;
   }
 }
 

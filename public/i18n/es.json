@@ -105,5 +105,21 @@
   "update.modal.current": "Versión actual",
   "update.modal.latest": "Última versión",
   "update.modal.repo": "Repositorio de GitHub",
-  "update.modal.release": "Ver lanzamiento"
+  "update.modal.release": "Ver lanzamiento",
+  "exitNode.title": "Exit Node",
+  "exitNode.advertise": "Anunciar como Exit Node",
+  "exitNode.advertise.desc": "Permitir que otros dispositivos en tu tailnet enruten su tráfico de internet a través de este nodo.",
+  "exitNode.use": "Usar Exit Node",
+  "exitNode.use.desc": "Enrutar el tráfico de internet de este nodo a través de otro exit node.",
+  "exitNode.use.placeholder": "IP o hostname del exit node (dejar vacío para desactivar)",
+  "exitNode.allowLan": "Permitir Acceso LAN",
+  "exitNode.allowLan.desc": "Permitir acceso a dispositivos de red local al usar un exit node.",
+  "exitNode.status.advertised": "Este nodo está anunciado como exit node",
+  "exitNode.status.using": "Usando exit node: {node}",
+  "exitNode.status.disabled": "Exit node está desactivado",
+  "exitNode.noExitNode": "Ninguno (desactivado)",
+  "toast.exitNode.updated": "Configuración de exit node actualizada",
+  "toast.exitNode.updateFail": "Error al actualizar configuración de exit node: {error}",
+  "api.error.tailscale_prefs_failed": "Error al leer preferencias de Tailscale.",
+  "api.error.tailscale_prefs_update_failed": "Error al actualizar preferencias de Tailscale."
 }

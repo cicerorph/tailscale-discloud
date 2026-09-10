@@ -105,5 +105,21 @@
   "update.modal.current": "Version Actuelle",
   "update.modal.latest": "Dernière Version",
   "update.modal.repo": "Dépôt GitHub",
-  "update.modal.release": "Voir la Release"
+  "update.modal.release": "Voir la Release",
+  "exitNode.title": "Exit Node",
+  "exitNode.advertise": "Annoncer comme Exit Node",
+  "exitNode.advertise.desc": "Permettre à d'autres appareils de votre tailnet de router leur trafic internet via ce nœud.",
+  "exitNode.use": "Utiliser un Exit Node",
+  "exitNode.use.desc": "Router le trafic internet de ce nœud via un autre exit node.",
+  "exitNode.use.placeholder": "IP ou hostname de l'exit node (laisser vide pour désactiver)",
+  "exitNode.allowLan": "Autoriser l'accès LAN",
+  "exitNode.allowLan.desc": "Autoriser l'accès aux appareils du réseau local lors de l'utilisation d'un exit node.",
+  "exitNode.status.advertised": "Ce nœud est annoncé comme exit node",
+  "exitNode.status.using": "Exit node en cours : {node}",
+  "exitNode.status.disabled": "L'exit node est désactivé",
+  "exitNode.noExitNode": "Aucun (désactivé)",
+  "toast.exitNode.updated": "Paramètres de l'exit node mis à jour",
+  "toast.exitNode.updateFail": "Échec de la mise à jour des paramètres de l'exit node : {error}",
+  "api.error.tailscale_prefs_failed": "Échec de la lecture des préférences Tailscale.",
+  "api.error.tailscale_prefs_update_failed": "Échec de la mise à jour des préférences Tailscale."
 }
