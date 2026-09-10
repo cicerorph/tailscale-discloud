@@ -73,13 +73,9 @@ impl Prefs {
         crate::tailscale::localapi::endpoints::get_prefs().await
     }
 
-    /// Update prefs via the Tailscale LocalAPI /localapi/v0/start endpoint.
+    /// Update prefs via the Tailscale LocalAPI /localapi/v0/set endpoint.
+    /// This is the correct endpoint for runtime preference changes.
     pub async fn update(prefs: Self) -> Result<(), String> {
-        let opts = crate::tailscale::localapi::models::Options {
-            frontend_log_id: None,
-            update_prefs: Some(prefs),
-            auth_key: None,
-        };
-        crate::tailscale::localapi::endpoints::start(opts).await
+        crate::tailscale::localapi::endpoints::set_prefs(&prefs).await
     }
 }

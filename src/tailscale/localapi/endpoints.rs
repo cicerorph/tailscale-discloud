@@ -86,6 +86,23 @@ pub async fn start(opts: Options) -> Result<(), String> {
     Ok(())
 }
 
+/// Update preferences on a running Tailscale daemon via /localapi/v0/set.
+/// This is the correct endpoint for runtime preference changes (unlike /start
+/// which is for initial configuration).
+pub async fn set_prefs(prefs: &Prefs) -> Result<(), String> {
+    let body_bytes = serde_json::to_vec(prefs)
+        .map_err(|e| format!("[localapi] set_prefs failed to serialize prefs: {e}"))?;
+
+    request(
+        hyper::Method::POST,
+        "/localapi/v0/set",
+        bytes::Bytes::from(body_bytes),
+    )
+    .await?;
+
+    Ok(())
+}
+
 /// Login interactive
 pub async fn login_interactive() -> Result<(), String> {
     request(
